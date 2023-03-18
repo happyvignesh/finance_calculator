@@ -1,0 +1,4 @@
+Name	is_alcoholic
+Vignesh	False
+Gopi	True
+Karthi	True
