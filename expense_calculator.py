@@ -1,4 +1,3 @@
-
 class Tour:
 
     non_alcoholic_members = 0
@@ -28,6 +27,7 @@ class Tour:
         return Tour.expenses
 
     def spent_amount_by_each_person(self, expenses):
+        '''returns a dictionary which has spendings of each individual for non alcohol and alcohol events'''
         spent_amount = []
         spent_amount_alcohol = []
         total_amount_spent_by_person = {}
@@ -57,7 +57,7 @@ class Tour:
         return cls.alcohlic_members + cls.non_alcoholic_members
 
     @staticmethod
-    def show_spent_amount_by_each(people,spent_amount):
+    def show_spent_amount_by_each(people, spent_amount):
         for person in people:
             spent_amount[person] = people[person].spent_amount_by_each_person(Tour.expenses)
         print(spent_amount)
@@ -65,6 +65,7 @@ class Tour:
 
     @staticmethod
     def show_to_be_paid_by_each(people, spent_amount, Non_alcohol_amount, Alcohol_amount):
+        '''displays the final share of every individual for both non alcohol and alcohol events'''
         for person in people:
             NA_person_share = Non_alcohol_amount / Tour.total_members()
             person_contribution = spent_amount[person]["Non_Alcohol"]
@@ -86,6 +87,7 @@ class Tour:
 
     @staticmethod
     def read_input_data(input_file_name):
+        '''read details of individual and create an object for the same'''
         with open(input_file_name,'r') as person_info:
             people = {}
             is_header = True
@@ -99,6 +101,9 @@ class Tour:
 
     @staticmethod
     def read_expense_data(expense_file_name,people):
+        '''read the expenses from input file,
+        call read_expense method to update expenses dictionary
+        '''
         with open(expense_file_name,'r') as info:
             is_header = True
             for expenditure in info:
@@ -109,9 +114,9 @@ class Tour:
                 people[name].read_expense(_date, amount, where.strip())
 
 if __name__ == "__main__":
-    people = Tour.read_input_data('C:\\Python_Vignesh\\finance_calculator\\finance_calculator\\people_info.txt')
-    Tour.read_expense_data('..\\spent_info.txt', people)
-    #print(Tour.expenses)
+    people = Tour.read_input_data('people_info.txt')
+    Tour.read_expense_data('spent_info.txt', people)
+    print(Tour.expenses)
     spent_amount = {}
     Tour.show_spent_amount_by_each(people,spent_amount)
     Non_alcohol_amount, Alcohol_amount = Tour.total_expenditure_non_alcohol(people,spent_amount)
