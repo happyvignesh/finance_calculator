@@ -114,8 +114,8 @@ class Tour:
                 people[name].read_expense(_date, amount, where.strip())
 
 if __name__ == "__main__":
-    people = Tour.read_input_data('people_info.txt')
-    Tour.read_expense_data('spent_info.txt', people)
+    people = Tour.read_input_data('C:/Python_Vignesh/finance_calculator/finance_calculator/main/version_one/people_info.txt')
+    Tour.read_expense_data('C:/Python_Vignesh/finance_calculator/finance_calculator/main/version_one/spent_info.txt', people)
     print(Tour.expenses)
     spent_amount = {}
     Tour.show_spent_amount_by_each(people,spent_amount)
