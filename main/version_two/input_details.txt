@@ -1,0 +1,10 @@
+Trip_members|Gopi,Vignesh,Karthi
+Name|Date|Amount|Purpose|Participants
+Gopi|2022-02-19|1000|Food|All
+Gopi|2022-02-19|1000|Alcohol|Gopi,Karthi
+Gopi|2022-02-19|1500|Room|All
+Gopi|2022-02-19|1500|Petrol|All
+Gopi|2022-02-20|3000|Entrance|All
+Karthi|2022-02-20|1500|Alcohol|Gopi,Karthi
+Vignesh|2022-02-20|1500|Alcohol|Gopi,Karthi
+Vignesh|2022-02-19|2000|Food|All
