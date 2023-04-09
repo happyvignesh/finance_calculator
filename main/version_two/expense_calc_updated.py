@@ -9,7 +9,7 @@ class Tour:
     @classmethod
     def final_share(cls, person_name):
         each_share = cls.individual_share[person_name] - cls.expenses[person_name]
-        print(f'To be paid by {person_name} : {each_share}')
+        return f'To be paid by {person_name} : {each_share}'
 
     @staticmethod
     def read_expense_data(expense_file_name):
@@ -45,8 +45,10 @@ class Tour:
 
 
 if __name__ == "__main__":
-    people, total_expenses, individual_share = Tour.read_expense_data('C:/Python_Vignesh/finance_calculator/finance_calculator/main/version_two/input_details.txt')
+    people, total_expenses, individual_share = Tour.read_expense_data('input_details.txt')
     print(f'Total money spent by each person: {total_expenses}')
     print(f'Each person share: {individual_share}')
+    final_share_list = []
     for person in people:
-        Tour.final_share(person)
+        final_share_list.append(Tour.final_share(person))
+    print(final_share_list)
